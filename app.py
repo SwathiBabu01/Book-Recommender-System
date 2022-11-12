@@ -6,9 +6,6 @@ from numpy import linalg as la
 from sklearn.metrics.pairwise import cosine_similarity
 from sklearn.neighbors import KNeighborsClassifier, NearestNeighbors
 from scipy.sparse import csr_matrix
-from PIL import Image
-import ipywidgets as widgets
-from IPython.display import display
 import streamlit as st
 from tempfile import NamedTemporaryFile
 import shutil
