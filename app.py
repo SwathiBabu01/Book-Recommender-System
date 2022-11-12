@@ -26,9 +26,9 @@ st.title("WELCOME TO THE BOOK RECOMMENDER SYSTEM")
 
 #Reading Datasets
 def read_datasets():
-    books = pd.read_csv('/data/BX-Books.csv', sep = ';', error_bad_lines = False, encoding = 'latin-1')
-    users = pd.read_csv('/data/BX-Users.csv', sep=';', error_bad_lines=False, encoding="latin-1")
-    ratings = pd.read_csv('/data/BX-Book-Ratings.csv', sep=';', error_bad_lines=False, encoding="latin-1")
+    books = pd.read_csv('data/BX-Books.csv', sep = ';', error_bad_lines = False, encoding = 'latin-1')
+    users = pd.read_csv('data/BX-Users.csv', sep=';', error_bad_lines=False, encoding="latin-1")
+    ratings = pd.read_csv('data/BX-Book-Ratings.csv', sep=';', error_bad_lines=False, encoding="latin-1")
     return books, users, ratings
 
 #PRE-PROCESSING
@@ -58,10 +58,10 @@ def rat_loc(ratings_pivot):
 
 #This is the function that would be run everytime
 def read_new():
-    ratings = pd.read_csv('/data/Ratings.csv', error_bad_lines = False)
-    users = pd.read_csv('/data/Users.csv', error_bad_lines = False)
-    books = pd.read_csv('/data/Books.csv', error_bad_lines = False)
-    ratings_pivot = pd.read_csv('/data/Ratings_Pivot.csv', index_col=0, error_bad_lines = False)
+    ratings = pd.read_csv('data/Ratings.csv', error_bad_lines = False)
+    users = pd.read_csv('data/Users.csv', error_bad_lines = False)
+    books = pd.read_csv('data/Books.csv', error_bad_lines = False)
+    ratings_pivot = pd.read_csv('data/Ratings_Pivot.csv', index_col=0, error_bad_lines = False)
     return ratings,users,books,ratings_pivot
 
 #KNN TO RETURN ITEMS SIMILAR TO THE GIVEN ITEM
@@ -176,17 +176,17 @@ def first():
 
     users1.to_csv('Users.csv',index=False)
     books1.to_csv('Books.csv',index=False)
-    ratings.to_csv('/data/Ratings.csv',index=False)
+    ratings.to_csv('data/Ratings.csv',index=False)
     ratings_pivot.to_csv('Ratings_Pivot.csv')
 
 def csv_add(data, myCsvRow):
-    lnk = '/data/' + str(data) + '.csv'
+    lnk = 'data/' + str(data) + '.csv'
     with open(lnk,'a') as fd:
         fd.write(myCsvRow)
         fd.close()
 
 def edit_csv(recChange, userID):
-    filename = '/data/Users.csv'
+    filename = 'data/Users.csv'
     tempfile = NamedTemporaryFile(mode='w', delete=False)
     fields = ['User-ID', 'Location', 'Age', 'prevRec']
     with open(filename, 'r') as csvfile, tempfile:
@@ -221,7 +221,7 @@ if option == 'New User':
             get_book_info(b, books)
         users.loc[users['User-ID']==int(userID),'prevRec'] = bkStr
         edit_csv(bkStr, int(userID))
-        ratings_pivot.to_csv('/data/Ratings_Pivot.csv')
+        ratings_pivot.to_csv('data/Ratings_Pivot.csv')
 
 if option == 'Existing User':
     userID = st.text_input('Enter your User id:')
@@ -246,7 +246,7 @@ if option == 'Existing User':
                         ratings_pivot.loc[int(userID),l] = int(rat)
                         bkRow = str(userID) + ',' + str(rat) + ',' + str(l) + '\n'
                         csv_add('Ratings', bkRow)
-                        ratings_pivot.to_csv('/data/Ratings_Pivot.csv')
+                        ratings_pivot.to_csv('data/Ratings_Pivot.csv')
             if rec:
                 st.write('YOU MIGHT LIKE:')
                 recBks = (recommend(ratings_pivot.fillna(0), int(userID), books, users))
