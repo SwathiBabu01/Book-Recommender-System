@@ -210,6 +210,7 @@ option = st.selectbox('Existing User or New User?' , ('Existing User', 'New User
 if option == 'New User':
     userID = new_user()
     if userID:
+        ratings = ratings.drop_duplicates(['User-ID', 'Book-Title'])
         ratings_pivot = rat_pivot(ratings)
         st.write('You might like: ')
         recBks = recommend(ratings_pivot.fillna(0), int(userID), books, users)
