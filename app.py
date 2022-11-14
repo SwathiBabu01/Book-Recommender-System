@@ -350,7 +350,7 @@ if option == 'New User':
         users.loc[users['User-ID']==int(userID),'prevRec'] = bkStr
         edit_csv(bkStr, int(userID))
         repo = Repo('.')  
-        repo.index.add(['Ratings.csv'])
+        repo.index.add(['data/Ratings.csv'])
         repo.index.commit('my commit description')
         origin = repo.remote('origin')
         origin.push()
