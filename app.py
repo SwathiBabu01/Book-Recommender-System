@@ -82,7 +82,7 @@ def knn(data, k, query, indices):
 def recommend(data, user,books,userData):
     data1 = pd.DataFrame()
     isbns = userData.loc[userData['User-ID'] == user,'prevRec'].tolist()[0].split('\t') #gets the books that were recommended last time to the user
-    st.write(ratings_pivot.loc[user,:])
+    st.write(ratings.loc[ratings['User-ID']== user,:])
     data1 = data.loc[:,data.loc[user,:]==0] #items that the user hasn't rated yet
     indices = data1.columns #to keep track of the book names
     recs = []
