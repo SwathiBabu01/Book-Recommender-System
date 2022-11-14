@@ -349,7 +349,14 @@ if option == 'New User':
             get_book_info(b, books)
         users.loc[users['User-ID']==int(userID),'prevRec'] = bkStr
         edit_csv(bkStr, int(userID))
-        Repo.git.push("origin", "HEAD:refs/for/main")
+        try:
+            repo = Repo('git@github.com:SwathiBabu01/Book-Recommender-System.git')
+            repo.git.add(update=True)
+            repo.index.commit('DONE!!')
+            origin = repo.remote(name='origin')
+            origin.push()
+        except:
+            print('Some error occured while pushing the code')  
         #ratings_pivot.to_csv('data/Ratings_Pivot.csv')
 
 #PROCESS FOR EXISTING USER
