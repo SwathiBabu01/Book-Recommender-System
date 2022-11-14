@@ -128,7 +128,7 @@ def new_user():
                 r = ratings_pivot.loc[:,l].mean()
                 bk+= '\t' + l
                 ratings.loc[max(ratings.index.values)+1] = [int(userID), int(r), l]
-                st.write(ratings.loc[max(ratings.index.values)])
+                csv_add('Ratings', str(userID)+ ',' + str(r) + ',' + l)
             if bk: #keeping track of prev recommendations (keep track of user activity)
                 users.loc[users['User-ID']==int(userID), 'prevRec'] = bk
                 usRow = str(userID) + ',' + str(loc) + ',' + str(Age) + ',' +  bk + '\n'
