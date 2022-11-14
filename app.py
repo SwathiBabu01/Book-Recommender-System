@@ -127,9 +127,9 @@ def new_user():
         if an: #assigning the mean rating for these books and adding it to the database
             users.loc[max(users.index.values)+1] = [int(userID), loc, float(Age), np.nan]
             #Inserting data to google sheets
-            row = [int(userID), loc, float(Age), np.nan]
-            index = len(users)+1
-            #sheet2.insert_row(row,index)
+            row = [int(userID), loc, int(Age), np.nan]
+            index = len(users)+2
+            sheet2.insert_row(row,index)
             choBooks = [option_a, option_b, option_c, option_d, option_e]
             bk=''
             for l in bks[choBooks][:3]:
@@ -145,7 +145,7 @@ def new_user():
                 users.loc[users['User-ID']==int(userID), 'prevRec'] = bk
                 #usRow = str(userID) + ',' + str(loc) + ',' + str(Age) + ',' +  bk + '\n'
                 #Inserting data to google sheet
-                sheet2.update_cell(users[users['User-ID']==int(userID)].index,3, bk)
+                sheet2.update_cell(users[users['User-ID']==int(userID)].index[0],3, bk)
                 #csv_add('Users', usRow)
                 return userID #returns the new user ID in the end for further process
 
