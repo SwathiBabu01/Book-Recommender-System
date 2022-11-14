@@ -128,7 +128,7 @@ def new_user():
             users.loc[max(users.index.values)+1] = [int(userID), loc, float(Age), np.nan]
             #Inserting data to google sheets
             row = [int(userID), loc, float(Age), np.nan]
-            index = users.shape[0]+1
+            index = len(users)+1
             sheet2.insert_row(row,index)
             choBooks = [option_a, option_b, option_c, option_d, option_e]
             bk=''
