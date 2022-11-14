@@ -127,9 +127,8 @@ def new_user():
         if an: #assigning the mean rating for these books and adding it to the database
             users.loc[max(users.index.values)+1] = [int(userID), loc, float(Age), np.nan]
             #Inserting data to google sheets
-            row = [int(userID), loc, int(Age), '']
-            index = len(users)+2
-            sheet2.add_row(1)
+            row = [int(userID), loc, int(Age), ' ']
+            index = len(users)+1
             sheet2.insert_row(row,index)
             choBooks = [option_a, option_b, option_c, option_d, option_e]
             bk=''
@@ -139,7 +138,7 @@ def new_user():
                 ratings.loc[max(ratings.index.values)+1] = [int(userID), int(r), l]
                 #Inserting the data into the google sheet
                 row = [int(userID), int(r), l]
-                index = ratings.shape[0]+2
+                index = len(ratings) +1
                 sheet1.insert_row(row,index)
                 #csv_add('Ratings', str(userID)+ ',' + str(r) + ',' + l)
             if bk: #keeping track of prev recommendations (keep track of user activity)
