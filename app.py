@@ -140,19 +140,18 @@ def get_book_info(bkName, books): #if available prints basic info about the book
     try:
         isbn = books.loc[books['Book-Title']==bkName,'ISBN'].values[0]
         st.write(isbn)
-        logging.warning(isbn)
-        print(isbn)
         base_api_link = "https://www.googleapis.com/books/v1/volumes?q=isbn:"
-        st.write("Link aboves strip : " + base_api_link + user_input)
+        st.write('blah')
+        st.write(base_api_link)
+        
         user_input = isbn.strip()
-
+        st.write("Link aboves strip : " + base_api_link + user_input)
         st.write("Link aboves: " + base_api_link + user_input)
         with urllib.request.urlopen(base_api_link + user_input) as f:
             text = f.read()
         st.write("Link : " + base_api_link + user_input)
         st.write(text)
 
-        logging.warning(text)
         decoded_text = text.decode("utf-8")
         obj = json.loads(decoded_text) # deserializes decoded_text to a Python object
         volume_info = obj["items"][0] 
