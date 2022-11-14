@@ -22,7 +22,7 @@ warnings.filterwarnings("ignore")
 
 #Title of the web page 
 st.set_page_config(page_title = "THE BOOK RECOMMENDER SYSTEM", layout = "wide")
-st.title("WELCOME TO THE BOOK RECOMMENDER SYSTEM")
+#st.title("WELCOME TO THE BOOK RECOMMENDER SYSTEM")
 
 #Reading Datasets initially -- runs only for the first time I ran the app.
 def read_datasets():
@@ -134,10 +134,12 @@ def new_user():
 
 #INFORMATION ON BOOKS
 def get_book_info(bkName, books): #if available prints basic info about the books pulled from google API
+    st.title("IND|SIDE GET_BOOK_INFO")
     print(111111111)
     import logging
     try:
         isbn = books.loc[books['Book-Title']==bkName,'ISBN'].values[0]
+        st.write(isbn)
         logging.warning(isbn)
         print(isbn)
         base_api_link = "https://www.googleapis.com/books/v1/volumes?q=isbn:"
@@ -145,7 +147,7 @@ def get_book_info(bkName, books): #if available prints basic info about the book
 
         with urllib.request.urlopen(base_api_link + user_input) as f:
             text = f.read()
-        print(text)
+        st.write(text)
         logging.warning(text)
         decoded_text = text.decode("utf-8")
         obj = json.loads(decoded_text) # deserializes decoded_text to a Python object
