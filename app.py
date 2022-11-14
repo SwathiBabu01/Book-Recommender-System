@@ -349,10 +349,10 @@ if option == 'New User':
             get_book_info(b, books)
         users.loc[users['User-ID']==int(userID),'prevRec'] = bkStr
         edit_csv(bkStr, int(userID))
-        repo = Repo(r'https://github.com/SwathiBabu01/Book-Recommender-System.git')
-        repo.git.add(update=True)
-        repo.index.commit('DONE!!')
-        origin = repo.remote(name='origin')
+        repo = Repo('path/to/git/.')  # if repo is CWD just do '.'
+        repo.index.add(['bla.txt'])
+        repo.index.commit('my commit description')
+        origin = repo.remote('origin')
         origin.push()
         #ratings_pivot.to_csv('data/Ratings_Pivot.csv')
 
