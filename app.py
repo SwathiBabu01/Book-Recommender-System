@@ -140,9 +140,9 @@ def get_book_info(bkName, books): #if available prints basic info about the book
         base_api_link = "https://www.googleapis.com/books/v1/volumes?q=isbn:"
         user_input = isbn.strip()
 
-        with urllib.request.urlopen(base_api_link + user_input) as f:
-            text = f.read()
-
+        '''with urllib.request.urlopen(base_api_link + user_input) as f:
+            text = f.read()'''
+        text = urllib.request.urlopen(base_api_link + user_input).read()
         decoded_text = text.decode("utf-8")
         obj = json.loads(decoded_text) # deserializes decoded_text to a Python object
         volume_info = obj["items"][0] 
@@ -373,6 +373,7 @@ if option == 'Existing User':
                         ratings_pivot.loc[int(userID),l] = int(rat)
                         bkRow = str(userID) + ',' + str(rat) + ',' + str(l) + '\n'
                         csv_add('Ratings', bkRow)
+                        ratings = ratings.drop_duplicates(['User-ID', 'Book-Title'])
                         ratings_pivot.to_csv('data/Ratings_Pivot.csv')
             if rec: #they receive new recommendations
                 st.write('YOU MIGHT LIKE:')
