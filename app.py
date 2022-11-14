@@ -14,6 +14,7 @@ import urllib.request
 import json
 import textwrap
 import time
+from git import Repo
 
 
 import warnings
@@ -326,7 +327,6 @@ def run_test():
 
 
 #MAIN STRUCTURE
-print(1632868)
 ratings, users, books, ratings_pivot = read_new()
 
 #New user or Existing user
@@ -349,6 +349,7 @@ if option == 'New User':
             get_book_info(b, books)
         users.loc[users['User-ID']==int(userID),'prevRec'] = bkStr
         edit_csv(bkStr, int(userID))
+        repo.git.push("origin", "HEAD:refs/for/main")
         #ratings_pivot.to_csv('data/Ratings_Pivot.csv')
 
 #PROCESS FOR EXISTING USER
