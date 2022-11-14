@@ -129,7 +129,7 @@ def new_user():
                 bk+= '\t' + l
                 ratings.loc[max(ratings.index.values)+1] = [int(userID), int(r), l]
             if bk: #keeping track of prev recommendations (keep track of user activity)
-                users.loc[users['User-ID']==userID, 'prevRec'] = bk
+                users.loc[users['User-ID']==int(userID), 'prevRec'] = bk
                 usRow = str(userID) + ',' + str(loc) + ',' + str(Age) + ',' +  bk + '\n'
                 csv_add('Users', usRow)
                 return userID #returns the new user ID in the end for further process
@@ -346,6 +346,7 @@ if option == 'New User':
             st.markdown(lnk)
             get_book_info(b, books)
         users.loc[users['User-ID']==int(userID),'prevRec'] = bkStr
+
         edit_csv(bkStr, int(userID))
         ratings_pivot.to_csv('data/Ratings_Pivot.csv')
 
