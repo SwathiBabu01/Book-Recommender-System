@@ -48,6 +48,7 @@ def preprocess(ratings):
 
 #USERS-BOOKS RATINGS MATRIX
 def rat_pivot(data):
+    data = data.drop_duplicates(['User-ID', 'Book-Title'])
     x = data.pivot(index='User-ID', columns='Book-Title', values = 'Book-Rating')
     return x
 
