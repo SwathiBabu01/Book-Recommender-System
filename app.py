@@ -145,7 +145,7 @@ def new_user():
                 users.loc[users['User-ID']==int(userID), 'prevRec'] = bk
                 #usRow = str(userID) + ',' + str(loc) + ',' + str(Age) + ',' +  bk + '\n'
                 #Inserting data to google sheet
-                sheet2.update_cell(users[users['User-ID']==int(userID)].index[0],3, bk)
+                sheet2.update_cell(users[users['User-ID']==int(userID)].index[0],4, bk)
                 #csv_add('Users', usRow)
                 return userID #returns the new user ID in the end for further process
 
