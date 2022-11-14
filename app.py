@@ -387,6 +387,7 @@ if option == 'Existing User':
                     bkStr = bkStr +'\t' + b
                     lnk = '!['+ b + ']('+ books.loc[books['Book-Title']== b,'Image-URL-L'].values[0] + ')'
                     st.markdown(lnk)
+                    print('before google')
                     get_book_info(b, books)
                 users.loc[users['User-ID']==int(userID),'prevRec'] = bkStr
                 edit_csv(bkStr, int(userID))
