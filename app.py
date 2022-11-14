@@ -336,7 +336,9 @@ if option == 'New User':
     userID = new_user() 
     if userID: #After receiving the userID of the new user, they are recommended new books and all the informaation is updated in respective dataframes
         ratings = ratings.drop_duplicates(['User-ID', 'Book-Title'])
+        st.write(ratings.loc[max(ratings.index.values)])
         ratings_pivot = rat_pivot(ratings)
+        st.write(ratings_pivot.loc[int(userID),:])
         st.write('You might like: ')
         recBks = recommend(ratings_pivot.fillna(0), int(userID), books, users)
         bkStr = ''
@@ -347,16 +349,14 @@ if option == 'New User':
             st.markdown(lnk)
             get_book_info(b, books)
         users.loc[users['User-ID']==int(userID),'prevRec'] = bkStr
-
         edit_csv(bkStr, int(userID))
-        ratings_pivot.to_csv('data/Ratings_Pivot.csv')
+        #ratings_pivot.to_csv('data/Ratings_Pivot.csv')
 
 #PROCESS FOR EXISTING USER
 if option == 'Existing User':
     userID = st.text_input('Enter your User id:') #Asking for the user ID
     if userID: # if user id exists
         if int(userID) in users['User-ID'].values:
-            ratings_pivot = rat_pivot(ratings)
             #Asking if they would like to review the previous recommendations or get new recommendations
             rat = st.checkbox('Rate the previous Recommendation') 
             rec = st.checkbox('Get new Recommendations!')
