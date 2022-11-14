@@ -129,7 +129,7 @@ def new_user():
             #Inserting data to google sheets
             row = [int(userID), loc, float(Age), np.nan]
             index = len(users)+1
-            sheet2.insert_row(row,index)
+            #sheet2.insert_row(row,index)
             choBooks = [option_a, option_b, option_c, option_d, option_e]
             bk=''
             for l in bks[choBooks][:3]:
