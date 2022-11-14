@@ -85,7 +85,6 @@ def knn(data, k, query, indices):
 def recommend(data, user,books,userData):
     data1 = pd.DataFrame()
     isbns = userData.loc[userData['User-ID'] == user,'prevRec'].tolist()[0].split('\t') #gets the books that were recommended last time to the user
-    st.write(ratings.loc[ratings['User-ID']== user,:])
     data1 = data.loc[:,data.loc[user,:]==0] #items that the user hasn't rated yet
     indices = data1.columns #to keep track of the book names
     recs = []
@@ -374,12 +373,16 @@ if option == 'New User':
         st.write('You might like: ')
         recBks = recommend(ratings_pivot.fillna(0), int(userID), books, users)
         bkStr = ''
+        st.write(recBks)
         for b in recBks:
-            st.write(b)
-            bkStr = bkStr +'\t' + b
-            lnk = '!['+ b + ']('+ books.loc[books['Book-Title']== b,'Image-URL-L'].values[0] + ')'
-            st.markdown(lnk)
-            get_book_info(b, books)
+            try:
+                st.write(b)
+                bkStr = bkStr +'\t' + b
+                lnk = '!['+ b + ']('+ books.loc[books['Book-Title']== b,'Image-URL-L'].values[0] + ')'
+                st.markdown(lnk)
+                get_book_info(b, books)
+            except IndexError:
+                 st.write('.')
         users.loc[users['User-ID']==int(userID),'prevRec'] = bkStr
         ind = users[users['User-ID']==int(userID)].index[0] + 2
         sheet2.update_cell(ind,4, bkStr)
@@ -420,11 +423,14 @@ if option == 'Existing User':
                 recBks = (recommend(ratings_pivot.fillna(0), int(userID), books, users))
                 bkStr = ''
                 for b in recBks:
-                    st.write(b)
-                    bkStr = bkStr +'\t' + b
-                    lnk = '!['+ b + ']('+ books.loc[books['Book-Title']== b,'Image-URL-L'].values[0] + ')'
-                    st.markdown(lnk)
-                    get_book_info(b, books)
+                    try:
+                        st.write(b)
+                        bkStr = bkStr +'\t' + b
+                        lnk = '!['+ b + ']('+ books.loc[books['Book-Title']== b,'Image-URL-L'].values[0] + ')'
+                        st.markdown(lnk)
+                        get_book_info(b, books)
+                    except IndexError:
+                        st.write('.')
                 users.loc[users['User-ID']==int(userID),'prevRec'] = bkStr
                 #Inserting data
                 sheet2.update_cell(users[users['User-ID']==int(userID)].index[0]+2,4, bkStr)
