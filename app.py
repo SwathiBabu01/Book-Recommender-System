@@ -147,8 +147,14 @@ def get_book_info(bkName, books): #if available prints basic info about the book
         user_input = isbn.strip()
         st.write("Link aboves strip : " + base_api_link + user_input)
         st.write("Link aboves: " + base_api_link + user_input)
-        with urllib.request.urlopen(base_api_link + user_input) as f:
-            text = f.read()
+        """with urllib.request.urlopen(base_api_link + user_input) as f:
+            text = f.read()"""
+
+        from urllib import parse
+        from urllib import request
+
+        st.write(request.urlopen(base_api_link + user_input).read().decode('utf-8'))
+        text = request.urlopen(base_api_link + user_input).read()
         st.write("Link : " + base_api_link + user_input)
         st.write(text)
 
