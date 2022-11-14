@@ -356,6 +356,7 @@ if option == 'Existing User':
     userID = st.text_input('Enter your User id:') #Asking for the user ID
     if userID: # if user id exists
         if int(userID) in users['User-ID'].values:
+            ratings_pivot = rat_pivot(ratings)
             #Asking if they would like to review the previous recommendations or get new recommendations
             rat = st.checkbox('Rate the previous Recommendation') 
             rec = st.checkbox('Get new Recommendations!')
