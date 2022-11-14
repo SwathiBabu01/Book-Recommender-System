@@ -134,6 +134,7 @@ def new_user():
 
 #INFORMATION ON BOOKS
 def get_book_info(bkName, books): #if available prints basic info about the books pulled from google API
+    print(111111111)
     import logging
     try:
         isbn = books.loc[books['Book-Title']==bkName,'ISBN'].values[0]
