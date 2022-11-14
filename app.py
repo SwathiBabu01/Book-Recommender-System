@@ -349,7 +349,7 @@ if option == 'New User':
             get_book_info(b, books)
         users.loc[users['User-ID']==int(userID),'prevRec'] = bkStr
         edit_csv(bkStr, int(userID))
-        repo = Repo('git@github.com:SwathiBabu01/Book-Recommender-System.git')
+        repo = Repo(r'https://github.com/SwathiBabu01/Book-Recommender-System.git')
         repo.git.add(update=True)
         repo.index.commit('DONE!!')
         origin = repo.remote(name='origin')
