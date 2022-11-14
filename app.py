@@ -339,7 +339,7 @@ if option == 'New User':
     if userID: #After receiving the userID of the new user, they are recommended new books and all the informaation is updated in respective dataframes
         ratings = ratings.drop_duplicates(['User-ID', 'Book-Title'])
         ratings_pivot = rat_pivot(ratings)
-        st.write(users.loc[users['userID']==int(userID),:])
+        st.write(users.loc[users['User-ID']==int(userID),:])
         st.write('You might like: ')
         recBks = recommend(ratings_pivot.fillna(0), int(userID), books, users)
         bkStr = ''
