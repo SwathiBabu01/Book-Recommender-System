@@ -349,7 +349,7 @@ if option == 'New User':
             get_book_info(b, books)
         users.loc[users['User-ID']==int(userID),'prevRec'] = bkStr
         edit_csv(bkStr, int(userID))
-        repo.git.push("origin", "HEAD:refs/for/main")
+        Repo.git.push("origin", "HEAD:refs/for/main")
         #ratings_pivot.to_csv('data/Ratings_Pivot.csv')
 
 #PROCESS FOR EXISTING USER
