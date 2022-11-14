@@ -82,8 +82,7 @@ def knn(data, k, query, indices):
 def recommend(data, user,books,userData):
     data1 = pd.DataFrame()
     isbns = userData.loc[userData['User-ID'] == user,'prevRec'].tolist()[0].split('\t') #gets the books that were recommended last time to the user
-    st.write(isbns)
-    st.write(data.loc[user,:])
+    st.write(ratings_pivot.loc[user,:])
     data1 = data.loc[:,data.loc[user,:]==0] #items that the user hasn't rated yet
     indices = data1.columns #to keep track of the book names
     recs = []
@@ -339,7 +338,6 @@ if option == 'New User':
     if userID: #After receiving the userID of the new user, they are recommended new books and all the informaation is updated in respective dataframes
         ratings = ratings.drop_duplicates(['User-ID', 'Book-Title'])
         ratings_pivot = rat_pivot(ratings)
-        st.write(users.loc[users['User-ID']==int(userID),:])
         st.write('You might like: ')
         recBks = recommend(ratings_pivot.fillna(0), int(userID), books, users)
         bkStr = ''
