@@ -327,6 +327,7 @@ def run_test():
 
 
 #MAIN STRUCTURE
+print(1632868)
 ratings, users, books, ratings_pivot = read_new()
 
 #New user or Existing user
