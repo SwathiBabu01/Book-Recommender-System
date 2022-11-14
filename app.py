@@ -126,20 +126,27 @@ def new_user():
         an = st.button('Click me when done')
         if an: #assigning the mean rating for these books and adding it to the database
             users.loc[max(users.index.values)+1] = [int(userID), loc, float(Age), np.nan]
+            #Inserting data to google sheets
+            row = [int(userID), loc, float(Age), np.nan]
+            index = users.shape[0]+1
+            sheet2.insert_row(row,index)
             choBooks = [option_a, option_b, option_c, option_d, option_e]
             bk=''
             for l in bks[choBooks][:3]:
                 r = ratings_pivot.loc[:,l].mean()
                 bk+= '\t' + l
                 ratings.loc[max(ratings.index.values)+1] = [int(userID), int(r), l]
+                #Inserting the data into the google sheet
                 row = [int(userID), int(r), l]
                 index = ratings.shape[0]+2
-                sheet.insert_row(row,index)
+                sheet1.insert_row(row,index)
                 #csv_add('Ratings', str(userID)+ ',' + str(r) + ',' + l)
             if bk: #keeping track of prev recommendations (keep track of user activity)
                 users.loc[users['User-ID']==int(userID), 'prevRec'] = bk
-                usRow = str(userID) + ',' + str(loc) + ',' + str(Age) + ',' +  bk + '\n'
-                csv_add('Users', usRow)
+                #usRow = str(userID) + ',' + str(loc) + ',' + str(Age) + ',' +  bk + '\n'
+                #Inserting data to google sheet
+                sheet2.update_cell(users[users['User-ID']==int(userID)].index,3, bk)
+                #csv_add('Users', usRow)
                 return userID #returns the new user ID in the end for further process
 
 #INFORMATION ON BOOKS
@@ -343,9 +350,17 @@ client = gspread.authorize(creds)
 
 ratings, users, books, ratings_pivot = read_new()
 
-sheet = client.open('Ratings').sheet1
-python_sheet = sheet.get_all_records()
-ratings = pd.DataFrame(python_sheet)
+sheet1 = client.open('Ratings').sheet1
+python_sheet1 = sheet1.get_all_records()
+ratings = pd.DataFrame(python_sheet1)
+
+sheet2= client.open('Users').sheet1
+python_sheet2 = sheet2.get_all_records()
+users = pd.DataFrame(python_sheet2)
+
+sheet3 = client.open('Books').sheet1
+python_sheet3 = sheet3.get_all_records()
+books = pd.DataFrame(python_sheet3)
 
 #New user or Existing user
 option = st.selectbox('Existing User or New User?' , ('Existing User', 'New User'))
@@ -366,13 +381,8 @@ if option == 'New User':
             st.markdown(lnk)
             get_book_info(b, books)
         users.loc[users['User-ID']==int(userID),'prevRec'] = bkStr
-        edit_csv(bkStr, int(userID))
-        '''repo = Repo('.')  
-        repo.index.add(['data/Ratings.csv'])
-        repo.index.commit('Try 1')
-        origin = repo.remote('origin')
-        origin.push()'''
-        #ratings_pivot.to_csv('data/Ratings_Pivot.csv')
+        sheet2.update_cell(users[users['User-ID']==int(userID)].index,3, bkStr)
+        #edit_csv(bkStr, int(userID))
 
 #PROCESS FOR EXISTING USER
 if option == 'Existing User':
@@ -396,11 +406,14 @@ if option == 'Existing User':
                     rat = st.text_input('Enter your rating:', key = m)
                     if rat:
                         ratings.loc[max(ratings.index.values)+1] = [int(userID), int(rat), str(l)]
+                        #Inserting data
+                        row = [int(userID), int(rat), str(l)]
+                        index = len(ratings.index.values) + 1
+                        sheet1.insert_row(row,index)
                         ratings_pivot.loc[int(userID),l] = int(rat)
-                        bkRow = str(userID) + ',' + str(rat) + ',' + str(l) + '\n'
-                        csv_add('Ratings', bkRow)
-                        ratings = ratings.drop_duplicates(['User-ID', 'Book-Title'])
-                        ratings_pivot.to_csv('data/Ratings_Pivot.csv')
+                        #bkRow = str(userID) + ',' + str(rat) + ',' + str(l) + '\n'
+                        #csv_add('Ratings', bkRow)
+                        #ratings_pivot.to_csv('data/Ratings_Pivot.csv')
             if rec: #they receive new recommendations
                 st.write('YOU MIGHT LIKE:')
                 recBks = (recommend(ratings_pivot.fillna(0), int(userID), books, users))
@@ -410,10 +423,11 @@ if option == 'Existing User':
                     bkStr = bkStr +'\t' + b
                     lnk = '!['+ b + ']('+ books.loc[books['Book-Title']== b,'Image-URL-L'].values[0] + ')'
                     st.markdown(lnk)
-                    print('before google')
                     get_book_info(b, books)
                 users.loc[users['User-ID']==int(userID),'prevRec'] = bkStr
-                edit_csv(bkStr, int(userID))
+                #Inserting data
+                sheet2.update_cell(users[users['User-ID']==int(userID)].index,3, bkStr)
+                #edit_csv(bkStr, int(userID))
         
         elif userID!= '': #if the userID does not exist
             st.write('Username does not exist. Please try again!')
