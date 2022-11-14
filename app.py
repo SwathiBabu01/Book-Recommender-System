@@ -15,7 +15,9 @@ import json
 import textwrap
 import time
 from git import Repo
-
+import gspread
+from oauth2client.service_account import ServiceAccountCredentials
+import pprint
 
 import warnings
 warnings.filterwarnings("ignore")
@@ -130,7 +132,10 @@ def new_user():
                 r = ratings_pivot.loc[:,l].mean()
                 bk+= '\t' + l
                 ratings.loc[max(ratings.index.values)+1] = [int(userID), int(r), l]
-                csv_add('Ratings', str(userID)+ ',' + str(r) + ',' + l)
+                row = [int(userID), int(r), l]
+                index = ratings.shape[0]+2
+                sheet.insert_row(row,index)
+                #csv_add('Ratings', str(userID)+ ',' + str(r) + ',' + l)
             if bk: #keeping track of prev recommendations (keep track of user activity)
                 users.loc[users['User-ID']==int(userID), 'prevRec'] = bk
                 usRow = str(userID) + ',' + str(loc) + ',' + str(Age) + ',' +  bk + '\n'
@@ -327,7 +332,20 @@ def run_test():
 
 
 #MAIN STRUCTURE
+#Authorize the API
+scope = [
+    'https://www.googleapis.com/auth/drive',
+    'https://www.googleapis.com/auth/drive.file'
+    ]
+file_name = 'client_key.json'
+creds = ServiceAccountCredentials.from_json_keyfile_name(file_name,scope)
+client = gspread.authorize(creds)
+
 ratings, users, books, ratings_pivot = read_new()
+
+sheet = client.open('Ratings').sheet1
+python_sheet = sheet.get_all_records()
+ratings = pd.DataFrame(python_sheet)
 
 #New user or Existing user
 option = st.selectbox('Existing User or New User?' , ('Existing User', 'New User'))
@@ -349,11 +367,11 @@ if option == 'New User':
             get_book_info(b, books)
         users.loc[users['User-ID']==int(userID),'prevRec'] = bkStr
         edit_csv(bkStr, int(userID))
-        repo = Repo('.')  
+'''        repo = Repo('.')  
         repo.index.add(['data/Ratings.csv'])
         repo.index.commit('Try 1')
         origin = repo.remote('origin')
-        origin.push()
+        origin.push()'''
         #ratings_pivot.to_csv('data/Ratings_Pivot.csv')
 
 #PROCESS FOR EXISTING USER
