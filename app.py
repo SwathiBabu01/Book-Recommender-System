@@ -381,7 +381,8 @@ if option == 'New User':
             st.markdown(lnk)
             get_book_info(b, books)
         users.loc[users['User-ID']==int(userID),'prevRec'] = bkStr
-        sheet2.update_cell(users[users['User-ID']==int(userID)].index,3, bkStr)
+        ind = users[users['User-ID']==int(userID)].index
+        sheet2.update_cell(ind,4, bkStr)
         #edit_csv(bkStr, int(userID))
 
 #PROCESS FOR EXISTING USER
@@ -426,7 +427,7 @@ if option == 'Existing User':
                     get_book_info(b, books)
                 users.loc[users['User-ID']==int(userID),'prevRec'] = bkStr
                 #Inserting data
-                sheet2.update_cell(users[users['User-ID']==int(userID)].index,3, bkStr)
+                sheet2.update_cell(users[users['User-ID']==int(userID)].index,4, bkStr)
                 #edit_csv(bkStr, int(userID))
         
         elif userID!= '': #if the userID does not exist
