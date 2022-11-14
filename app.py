@@ -147,7 +147,7 @@ def get_book_info(bkName, books): #if available prints basic info about the book
 
         with urllib.request.urlopen(base_api_link + user_input) as f:
             text = f.read()
-        st.write(base_api_link + user_input)
+        st.write("Link : " + base_api_link + user_input)
         st.write(text)
 
         logging.warning(text)
