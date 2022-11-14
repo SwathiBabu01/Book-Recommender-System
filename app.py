@@ -377,6 +377,7 @@ if option == 'Existing User':
                 recBks = (recommend(ratings_pivot.fillna(0), int(userID), books, users))
                 bkStr = ''
                 for b in recBks:
+                    st.write(b)
                     bkStr = bkStr +'\t' + b
                     lnk = '!['+ b + ']('+ books.loc[books['Book-Title']== b,'Image-URL-L'].values[0] + ')'
                     st.markdown(lnk)
