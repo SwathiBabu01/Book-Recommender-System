@@ -1,10 +1,12 @@
 User-ID,Location,Age,prevRec
 2276,"niskayuna, new york, usa",46.0,	The Natural Superiority of Women	Strands of Sunlight	Always a Thief
+3757,"madrid, madrid, spain",,	El Nombre De La Rosa/The Name Of The Rose	Cuentos de Eva Luna (Plaza &amp; JanÃ©s/literaria)	Cuentos de hadas retorcidos
 4385,"albq, new mexico, usa",33.0,"	The Runaway Jury	Man With A Past (Montana Mavericks #11) (Montana Mavericks No 11)	Rich , Rugged...Ruthless (Montana Mavericks)"
 6242,"calgary, alberta, canada",,	The Hours : A Novel	One Day in the Life of Ivan Denisovich	Waiting (Vintage International)
 6251,"wahiawa, hawaii, usa",32.0,	Dirk Gently's Holistic Detective Agency	A Wrinkle In Time	The Veil of Snows
 6575,"seattle, washington, usa",,	European Detours: A Travel Guide to Unusual Sights	Far Side Gallery 3 Paperback	The Time Traveler's Wife (Harvest Book)
 7346,"sunnyvale, california, usa",49.0,	Aunt Dimity's Death (Aunt Dimity (Paperback))	Charlotte's Web	All Things Bright and Beautiful
+11676,"n/a, n/a, n/a",,	A Cat on Stage Left: An Alice Nestleton Mystery (Alice Nestleton Mysteries (Hardcover))	Sinful	Trinity
 13552,"cordova, tennessee, usa",32.0,	Love Me Forever (Sherring Cross (Paperback))	The Witching Hour (Lives of the Mayfair Witches)	Lightning
 16634,"little rock, arkansas, usa",42.0,	Watership Down	Nightmares in the Sky: Gargoyles and Grotesques	The Light at the End
 16795,"mechanicsville, maryland, usa",47.0,	Skipping Christmas	Life of Pi	The Dogs of Babel (Today Show Book Club #12)
@@ -14,6 +16,7 @@ User-ID,Location,Age,prevRec
 25409,"la mesa, california, usa",31.0,	Harry Potter and the Goblet of Fire (Book 4)	Meanwhile Back at the Ranch	The Answer Is Yes: A Novel
 25981,"nj, new jersey, usa",,"	Robot Dreams (Masterworks of Science Fiction and Fantasy, No 5)	Three To Get Deadly : A Stephanie Plum Novel (A Stephanie Plum Novel)	All About Finches"
 30276,"wildwood, new jersey, usa",49.0,	Night Shadow (Thorndike Large Print Romance Series)	An Angel for Emily	Chicken Soup and Other Folk Remedies
+30511,"culemborg, gelderland, netherlands",,	Wilderness Tips	Oxford Advanced Learner's Dictionary: Of Current English	Concise Oxford English Dictionary (Thumb Index Edition)
 31315,"henryville, indiana, usa",34.0,	The Lost Boy	Legacy of Silence	The List
 31556,"chula vista, california, usa",51.0,	Fat Men from Space	Endurance: Shackleton's Incredible Voyage	We Live in Ireland (Living Here)
 31826,"jasper, missouri, usa",54.0,	To Kill a Mockingbird	Aliens Ate My Homework	SEEDS OF FEAR (HOT BLOOD ) (Hot Blood)
@@ -22,8 +25,10 @@ User-ID,Location,Age,prevRec
 37950,"calgary, alberta, canada",,	The Shining	Macbeth	Dracula (Tor Classics)
 38023,"hayward, california, usa",30.0,	The Color of Water: A Black Man's Tribute to His White Mother	RAGGED ASTRONAUTS	OFFICIAL SCRABBLE PLAYER'S DICTIONARY
 38273,"chandler, arizona, usa",,"	The Arming of Europe and the Making of the First World War	The Mystery of the Hot Air Balloon (Warner, Gertrude Chandler, Boxcar Children Mysteries.)	The Boxcar Children Cookbook"
+39467,"barcelona, catalunya, spain",35.0,"	Genoma - La Autobiografia de Una Especie En 23 Capitulos	The Fellowship of the Ring (The Lord of the Rings, Part 1)	The Stars My Destination"
 43246,"toronto, ontario, canada",36.0,	Sudden Blow (Jane Yeats Mystery)	The Xibalba Murders: An Archeological Mystery (Archaeological Mysteries)	Murder on the Orient Express
 46398,"san antonio, texas, usa",37.0,	The Hours : A Novel	The Satanic Verses	Atlas Shrugged
+49144,"ferreries, illes balears, spain",43.0,	LA Desa Paricion De Pato	LA Excursion a Tindari (Narrativa)	LA Nochevieja De Montalbano (Narrativa)
 51883,"jasper, missouri, usa",31.0,"	Truth Or Lies  The Tremaine Tradition (Silhouette Intimate Moments, 1238)	Separated at Birth?	Dr. Ruth's Pregnancy Guide for Couples"
 55490,"rapid city, south dakota, usa",25.0,	American Gods	Our Dreaming Mind	Atlas Shrugged
 56271,"leeds, england, united kingdom",22.0,	Psychoville	Roof World	I Capture the Castle
@@ -40,14 +45,18 @@ User-ID,Location,Age,prevRec
 76499,"new york, new york, usa",,	One Day in the Life of Ivan Denisovich	Lipstick Traces: A Secret History of the 20th Century	A CELLARFUL OF NOISE (Rhino Rediscovery)
 76626,"london, england, united kingdom",38.0,	Watership Down	Phoenix and the Carpet	Cymbeline (Arden Shakespeare Second (Paperback))
 78553,"el cajon, california, usa",40.0,	Harry Potter and the Prisoner of Azkaban (Book 3)	Clear Your Clutter With Feng Shui	Robin Hood Prince of Thieves (Berkley Movie Tie-In)
+78973,"amadora, lisboa, portugal",29.0,	It's A Magical World: A Calvin and Hobbes Collection	Watchers	Calvin and Hobbes
 79441,"spruce grove, alberta, canada",43.0,	Children of Dune	Torah: The Five Books of Moses	Stranger In a Strange Land
+81560,"christchurch, canterbury, new zealand",,"	The Fifth Head of Cerberus (Ace Science Fiction)	Stone of Farewell (Memory, Sorrow, and Thorn, Book 2)	Thraxas and the Dance of Death"
 87141,"huntington beach, california, usa",,	Harry Potter and the Sorcerer's Stone (Harry Potter (Paperback))	Skunk Works : A Personal Memoir of My Years of Lockheed	Gone For Good
 88677,"laval, quebec, canada",44.0,	Glory (Topaz Historical Romance)	Surrender (Florida Civil War (Paperback))	Love Not a Rebel
 88733,"houston, texas, usa",,	Winged Pharaoh	Gateway to a Vast World	A Book of Five Rings
 89602,"honolulu, hawaii, usa",,	Aloha Las Vegas: And Other Plays	The Secret Life of Bees	Ender's Game (Ender Wiggins Saga (Paperback))
 93047,"nashua, new hampshire, usa",52.0,"	Just So Stories (Penguin Twentieth-Century Classics)	Lamb: The Gospel According to Biff, Christ's Childhood Pal	A Warning to the Curious: Ghost Stories"
 94347,"oakland, new jersey, usa",44.0,	The Amazing Adventures of Kavalier &amp; Clay	Tropic of Cancer	Palace Walk (Cairo Trilogy)
+94853,"christchurch, canterbury, new zealand",27.0,"	Bali at Cost	Richard Simmons' Never Give Up: Inspirations, Reflections, Stories of Hope	Let's Go 2001: Boston: The World's Bestselling Budget Travel Series"
 95359,"charleston, west virginia, usa",33.0,"	Ramona Quimby, Age 8 (Avon Camelot Books (Paperback))	The Courts of Love: Stories	Betsy in Spite of Herself (Harper Trophy Book)"
+95902,"barcelona, catalunya, spain",57.0,	La Presa	Fin Del Viento (Alfaguara Hispanica)	Las Memorias De Maigret
 97874,"n/a, british columbia, canada",,	Stupid White Men ...and Other Sorry Excuses for the State of the Nation!	In the Meantime : Finding Yourself and the Love You Want	Cat &amp; Mouse : A Delicious Tale
 98391,"morrow, georgia, usa",52.0,	The Jury	Deficiency	The Closer
 100906,"seattle, washington, usa",34.0,"	From Rockaway (Vintage Contemporaries (Paperback))	El principito (Spanish)	Queen of Sorcery (The Belgariad, Book 2)"
@@ -56,12 +65,14 @@ User-ID,Location,Age,prevRec
 104636,"youngstown, ohio, usa",,	Secrets	Harry Potter and the Prisoner of Azkaban (Book 3)	The Ghost
 105517,"calgary, alberta, canada",28.0,"	The Exes : A Novel	A Prayer for Owen Meany	Tuesdays with Morrie: An Old Man, a Young Man, and Life's Greatest Lesson"
 107784,"tarentum, pennsylvania, usa",,"	The Handy Geography Answer Book	People of the Lie: The Hope for Healing Human Evil	The Official SCRABBLE (r) Players Dictionary, Third Edition"
+107951,"tübingen, baden-württemberg, germany",,	Divine Secrets of the Ya-Ya Sisterhood: A Novel	The Peoples of Middle-Earth (The History of Middle-Earth - Volume 12)	The J. R. R. Tolkien Audio Collection
 110934,"kirkland, washington, usa",46.0,	Five Quarters of the Orange	Catch 22	Gone with the Wind
 110973,"wiley ford, west virginia, usa",43.0,"	Falls the Shadow	Fireworks	Legends: Short Novels by the Masters of Modern Fantasy, Vol. 1"
 112001,"barren springs, virginia, usa",43.0,	Three Fates	Star Ka'at World	New York Dead
 114368,"mechanicsville, maryland, usa",33.0,"	Skipping Christmas	Enchanted: The Donovan Legacy (Intimate Moments, #961)	Reflections And Dreams"
 114988,"temple, texas, usa",37.0,	Restoration: A Novel of Seventeenth-Century England	Three Junes	Dress Your Family in Corduroy and Denim
 123883,"topeka, kansas, usa",18.0,
+125774,"tehran, tehran, iran",36.0,"	Angela's Ashes: A Memoir	The Golden Compass (His Dark Materials, Book 1)	If on a Winter's Night a Traveler"
 128835,"bellingham, washington, usa",60.0,	The Life and Loves of a She-Devil	The Word Museum : The Most Remarkable English Words Ever Forgotten	Fatherland
 129074,"marietta, georgia, usa",51.0,"	The Chicago Manual of Style	The Elements of Style, Fourth Edition	The Guns of August"
 129716,"tallahassee, florida, usa",30.0,"	The Chalice and the Blade: Our History, Our Future	Learning to Love: Exploring Solitude and Freedom (Merton, Thomas//Journal of Thomas Merton)	The Collected Poems of Audre Lorde"
@@ -77,6 +88,7 @@ User-ID,Location,Age,prevRec
 156150,"howell, new jersey, usa",36.0,	Farmer Boy (Little House)	The Velveteen Rabbit	The Lord of the Rings
 156269,"chicago, illinois, usa",53.0,	To Kill a Mockingbird : The 40th Anniversary Edition of the Pulitzer Prize-Winning Novel	The Last Detective (Elvis Cole Novels (Paperback))	The End of the Pier
 156467,"waltham, massachusetts, usa",38.0,	FIRST WIVES CLUB	Widow	The Love Charm
+157247,"deventer, overijssel, netherlands",48.0,"	Inside 9-11 : What Really Happened	Nine Levels Down	Bitter Blood: A True Story of Southern Family Pride, Madness, and Multiple Murder"
 158295,"cleveland, ohio, usa",,"	A Room for the Dead	Ammie, Come Home	The Witching Hour (Lives of the Mayfair Witches)"
 160541,"ashford, england, united kingdom",,	My Sergei : A Love Story	Notes From a Small Planet	A Royal Duty
 162052,"danville, virginia, usa",51.0,"	The Magician's Nephew (Narnia)	The Silver Chair (The Chronicles of Narnia, Book 6)	Ac/Dc: Shock to the System"
@@ -88,6 +100,7 @@ User-ID,Location,Age,prevRec
 177432,"wichita, kansas, usa",33.0,"	A Brief History of Time: From the Big Bang to the Black Holes	The Jugger	The Fellowship of the Ring (The Lord of the Rings, Part 1)"
 177458,"ottawa, ontario, canada",29.0,	Screening Party	The Razor's Edge	Generica
 179978,"perry, new york, usa",28.0,	The World of Christopher Robin	Curious George Goes to the Hospital	The Tower : A Story of Humility
+182085,"ginsheim, hessen, germany",,"	\Girls' Night Out\""/\""Boys' Night In\""""	Beth And The Barbarian (Presents Plus) (Harlequin Presents, No 11711)	Devil'S Own"
 183995,"columbus (grandview heights), ohio, usa",49.0,	Stupid White Men ...and Other Sorry Excuses for the State of the Nation!	How to Live Cat	Fabulous Facts About the 50 States
 185233,"winnemucca, nevada, usa",31.0,	Harry Potter and the Order of the Phoenix (Book 5)	The Stand: Complete and Uncut	Haunted America (Haunted America)
 189334,"ottawa, ontario, canada",49.0,	Roy Lichtenstein (Basic Series)	Santa dolls &amp; figurines price guide: Antique to contemporary	The End of Work: The Decline of the Global Labor Force and the Dawn of the Post-Market Era
@@ -96,19 +109,25 @@ User-ID,Location,Age,prevRec
 193560,"coalville, england, united kingdom",37.0,	The Year of the Griffin	The Changeling Sea	A Year at St. Gargoyle's
 197659,"indiana, pennsylvania, usa",49.0,	Trouble With Trolls	Robots and Empire	In Memory Yet Green: The Autobiography of Isaac Asimov
 200226,"burlington, ontario, canada",39.0,"	Anne of the Island (Anne of Green Gables Series, No. 3)	Aromatherapy Blends and Remedies: Over 800 Recipes for Everyday Use (Thorsons Aromatherapy Series)	Anne of Green Gables"
+203820,"zaragoza, zaragoza, spain",31.0,	Diez negritos	Los Trabajos De Hercules: Los Trabajos De Hercules	Primeros casos de Poirot
 204864,"simi valley, california, usa",47.0,"	Swimming Pool	The Nautical Chart	Over Sea, Under Stone"
 209516,"felixstowe, suffolk, united kingdom",57.0,	Five Quarters of the Orange	Cold Comfort Farm	The Stranger from the Sea: Book 8 (Poldark Saga)
 212965,"akron,, ohio, usa",43.0,	Sheiks Of Summer	The More I See You	The Very Thought of You
 216012,"clevelad, ohio, usa",34.0,	The First Time	Distant Shores	Magnolia Creek
 216683,"san jose, california, usa",,"	Fahrenheit 451	On a Pale Horse (Incarnations of Immortality, Bk. 1)	Hamlet (Bantam Classics)"
+217740,"madrid, madrid, spain",37.0,	Cien AÃ±os de Soledad	Revenant (Book Seven of Indigo)	Infanta (Indigo Book 3)
 225087,"toronto, ontario, canada",51.0,	Red Dragon	Gruel and Unusual Punishment: A Pennsylvania Dutch Mystery With Recipes (Pennsylvania Dutch Mysteries with Recipes (Hardcover))	A Dedicated Man: An Inspector Banks Mystery
 225232,"sydney, new south wales, australia",4.0,"	Jennie	Jane Austen, Her Complete Novels	Charade"
 225763,"san francisco, california, usa",,	Square Foot Gardening	The Alchemist: A Fable About Following Your Dream	Go Ask Alice (Avon/Flare Book)
+229329,"st-légier, vaud, switzerland",56.0,	Angela's Ashes: A Memoir	Castles (An Original Bantam Gift Book)	Little Monsters
 230522,"colorado springs, colorado, usa",52.0,	Harry Potter y la piedra filosofal	Of Love And Other Demons	Anne of the Island
 234828,"fairbanks, alaska, usa",,	The Two Towers	Beowulf: The Oldest English Epic (Galaxy Book)	Don't Sweat the Small Stuff with Your Family : Simple Ways to Keep Daily Responsibilities and Household Chaos from Taking Over Your Life (Don't Sweat the Small Stuff Series)
 235105,"st louis, missouri, usa",46.0,	Treason's Harbour (Aubrey-Maturin (Paperback))	The Letter of Marque	The Yellow Admiral (Aubrey-Maturin (Paperback))
 236283,"orlando, florida, usa",41.0,"	Tuesdays with Morrie: An Old Man, a Young Man, and Life's Greatest Lesson	Honey Rabbit (Sturdy Shape Book)	Shell Seekers"
 240144,"muskego, wisconsin, usa",34.0,	The World of Michael Parkes	Aunt Dimity and the Duke (Viking Mystery Suspense)	The Last Camel Died at Noon (Amelia Peabody Mysteries (Paperback))
+241198,"stuttgart, baden-württemberg, germany",,"	Ich sehe was, was du nicht siehst 2.	Ich ging den Weg des Derwisch. Das Abenteuer der Selbstfindung.	Ich sehe was, was du nicht siehst."
+242006,"santo domingo, distrito nacional, dominican republic",30.0,"	Anne of Ingleside (Anne of Green Gables Novels (Paperback))	His Girl Friday (Silhouette Desire, No 528)	Lionhearted  (Long, Tall Texans)"
+245827,"albuquerque, ,",,	A Wrinkle in Time	101 Wacky Facts About Kids	Typee: A Peep at Polynesian Life During a Four Months' Residence in a Valley of the Marquesas
 248718,"hyde park, new york, usa",43.0,"	Les Liasions Dangereuses	Piano Lessons: Music, Love, &amp; True Adventures	The Snow Queen"
 249894,"duncansville, pennsylvania, usa",,	Ride Pegasus	Warrior's Apprentice	A Civil Campaign: A Comedy of Biology and Manners
 252695,"lincoln, nebraska, usa",,	Rising Tides	Inner Harbor (Quinn Brothers (Paperback))	Dilbert: A Book of Postcards
