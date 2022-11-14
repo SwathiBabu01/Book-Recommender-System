@@ -145,7 +145,7 @@ def new_user():
                 users.loc[users['User-ID']==int(userID), 'prevRec'] = bk
                 #usRow = str(userID) + ',' + str(loc) + ',' + str(Age) + ',' +  bk + '\n'
                 #Inserting data to google sheet
-                sheet2.update_cell(users[users['User-ID']==int(userID)].index[0],4, bk)
+                sheet2.update_cell(users[users['User-ID']==int(userID)].index[0]+2,4, bk)
                 #csv_add('Users', usRow)
                 return userID #returns the new user ID in the end for further process
 
@@ -381,7 +381,7 @@ if option == 'New User':
             st.markdown(lnk)
             get_book_info(b, books)
         users.loc[users['User-ID']==int(userID),'prevRec'] = bkStr
-        ind = users[users['User-ID']==int(userID)].index[0]
+        ind = users[users['User-ID']==int(userID)].index[0] + 2
         sheet2.update_cell(ind,4, bkStr)
         #edit_csv(bkStr, int(userID))
 
@@ -427,7 +427,7 @@ if option == 'Existing User':
                     get_book_info(b, books)
                 users.loc[users['User-ID']==int(userID),'prevRec'] = bkStr
                 #Inserting data
-                sheet2.update_cell(users[users['User-ID']==int(userID)].index[0],4, bkStr)
+                sheet2.update_cell(users[users['User-ID']==int(userID)].index[0]+2,4, bkStr)
                 #edit_csv(bkStr, int(userID))
         
         elif userID!= '': #if the userID does not exist
