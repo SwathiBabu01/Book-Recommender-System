@@ -367,7 +367,7 @@ if option == 'New User':
             get_book_info(b, books)
         users.loc[users['User-ID']==int(userID),'prevRec'] = bkStr
         edit_csv(bkStr, int(userID))
-'''        repo = Repo('.')  
+        '''repo = Repo('.')  
         repo.index.add(['data/Ratings.csv'])
         repo.index.commit('Try 1')
         origin = repo.remote('origin')
