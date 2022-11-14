@@ -127,7 +127,7 @@ def new_user():
         if an: #assigning the mean rating for these books and adding it to the database
             users.loc[max(users.index.values)+1] = [int(userID), loc, float(Age), np.nan]
             #Inserting data to google sheets
-            row = [int(userID), loc, int(Age), np.nan]
+            row = [int(userID), loc, int(Age), '']
             index = len(users)+2
             sheet2.insert_row(row,index)
             choBooks = [option_a, option_b, option_c, option_d, option_e]
