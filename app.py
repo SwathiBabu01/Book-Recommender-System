@@ -329,6 +329,8 @@ sheet3 = client.open('Books').sheet1
 python_sheet3 = sheet3.get_all_records()
 books = pd.DataFrame(python_sheet3)
 
+ratings_pivot = rat_pivot(ratings)
+
 #New user or Existing user
 option = st.selectbox('Existing User or New User?' , ('Existing User', 'New User'))
 
@@ -341,7 +343,7 @@ if option == 'New User':
         try:
             ratings_pivot.drop([8.4, 253, 1984, 2001, np.inf],axis=1,inplace=True) #some cleaning
         except:
-            ratings_pivot = ratings_pivot
+            pass
         st.write('You might like: ')
         recBks = recommend(ratings_pivot.fillna(0), int(userID), books, users)
         bkStr = ''
