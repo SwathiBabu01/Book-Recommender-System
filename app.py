@@ -382,7 +382,12 @@ if option == 'New User':
                 st.markdown(lnk)
                 get_book_info(b, books)
             except IndexError:
-                 st.write('.')
+                ind = recBks[recBks == b].index
+                b = users.loc[users['User-ID'] == int(userID),'prevRec'].tolist()[0].split('\t')[ind]
+                st.write(b)
+                bkStr = bkStr +'\t' + b
+                lnk = '!['+ b + ']('+ books.loc[books['Book-Title']== b,'Image-URL-L'].values[0] + ')'
+                st.markdown(lnk)
         users.loc[users['User-ID']==int(userID),'prevRec'] = bkStr
         ind = users[users['User-ID']==int(userID)].index[0] + 2
         sheet2.update_cell(ind,4, bkStr)
