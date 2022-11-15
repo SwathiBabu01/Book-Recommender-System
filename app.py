@@ -64,15 +64,6 @@ def rat_loc(ratings_pivot):
     ratings_pivot.set_index('User-ID', inplace = True)
     return ratings_pivot
 
-#READING DATASETS UNIVERSAL - This is the data reading function that would be run everytime
-'''def read_new():
-    ratings = pd.read_csv('data/Ratings.csv', error_bad_lines = False)
-    users = pd.read_csv('data/Users.csv', error_bad_lines = False)
-    books = pd.read_csv('data/Books.csv', error_bad_lines = False)
-    #ratings_pivot = pd.read_csv('data/Ratings_Pivot.csv', index_col=0, error_bad_lines = False)
-    ratings_pivot = rat_pivot(ratings)
-    return ratings,users,books,ratings_pivot
-'''
 #KNN TO RETURN ITEMS SIMILAR TO THE GIVEN ITEM
 def knn(data, k, query, indices):
     model = NearestNeighbors(metric='cosine', algorithm='brute',n_jobs=-1)
@@ -199,30 +190,6 @@ def first():
     books1.to_csv('Books.csv',index=False)
     ratings.to_csv('data/Ratings.csv',index=False)
     ratings_pivot.to_csv('Ratings_Pivot.csv')
-
-'''#FUNCTION TO ADD ROWS TO THE FILE
-def csv_add(data, myCsvRow):
-    lnk = 'data/' + str(data) + '.csv'
-    with open(lnk,'a') as fd:
-        fd.write(myCsvRow)
-        fd.close()
-
-#FUNCTION TO EDIT EXISTING DATA IN CSV
-def edit_csv(recChange, userID):
-    filename = 'data/Users.csv'
-    tempfile = NamedTemporaryFile(mode='w', delete=False)
-    fields = ['User-ID', 'Location', 'Age', 'prevRec']
-    with open(filename, 'r') as csvfile, tempfile:
-        reader = csv.DictReader(csvfile, fieldnames=fields)
-        writer = csv.DictWriter(tempfile, fieldnames=fields)
-        for row in reader:
-            if row['User-ID'] == str(userID):
-                row['prevRec'] = recChange
-            row = {'User-ID': row['User-ID'], 'Location': row['Location'], 'Age': row['Age'], 'prevRec': row['prevRec']}
-            writer.writerow(row)
-    shutil.move(tempfile.name, filename)
-    csvfile.close()
-    tempfile.close()'''
 
 #FUNCTIONS THAT WERE USED TO TEST THE SYSTEM - Won't be run here
 
