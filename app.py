@@ -152,25 +152,6 @@ def new_user():
 #INFORMATION ON BOOKS
 def get_book_info(bkName, books): #if available prints basic info about the books pulled from google API
     try:
-        '''isbn = books.loc[books['Book-Title']==bkName,'ISBN'].values[0]
-        base_api_link = "https://www.googleapis.com/books/v1/volumes?q=isbn:"
-        user_input = isbn.strip()
-
-        with urllib.request.urlopen(base_api_link + user_input) as f:
-            text = f.read()
-        
-        decoded_text = text.decode("utf-8")
-        obj = json.loads(decoded_text) # deserializes decoded_text to a Python object
-        volume_info = obj["items"][0] 
-        authors = obj["items"][0]["volumeInfo"]["authors"]
-
-        # displays title, summary, author, domain, page count and language
-        st.write("\nTitle:", volume_info["volumeInfo"]["title"])
-        st.write("\nSummary:\n")
-        st.write(textwrap.fill(volume_info["searchInfo"]["textSnippet"], width=65))
-        st.write("\nAuthor(s):", ",".join(authors))
-        st.write("\nPage count:", volume_info["volumeInfo"]["pageCount"])
-        st.write("\n***")'''
         get_isbn = isbn_from_words("Clara Callan")
         st.write(registry.bibformatters['labels'](meta(str(get_isbn))))
     except:
