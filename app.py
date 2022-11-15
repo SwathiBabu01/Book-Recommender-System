@@ -18,6 +18,7 @@ from git import Repo
 import gspread
 from oauth2client.service_account import ServiceAccountCredentials
 import pprint
+from isbntools.app import *
 
 import warnings
 warnings.filterwarnings("ignore")
@@ -151,7 +152,7 @@ def new_user():
 #INFORMATION ON BOOKS
 def get_book_info(bkName, books): #if available prints basic info about the books pulled from google API
     try:
-        isbn = books.loc[books['Book-Title']==bkName,'ISBN'].values[0]
+        '''isbn = books.loc[books['Book-Title']==bkName,'ISBN'].values[0]
         base_api_link = "https://www.googleapis.com/books/v1/volumes?q=isbn:"
         user_input = isbn.strip()
 
@@ -169,7 +170,9 @@ def get_book_info(bkName, books): #if available prints basic info about the book
         st.write(textwrap.fill(volume_info["searchInfo"]["textSnippet"], width=65))
         st.write("\nAuthor(s):", ",".join(authors))
         st.write("\nPage count:", volume_info["volumeInfo"]["pageCount"])
-        st.write("\n***")
+        st.write("\n***")'''
+        get_isbn = isbn_from_words("Clara Callan")
+        st.write(registry.bibformatters['labels'](meta(str(get_isbn))))
     except:
         st.write("No info!")
 
