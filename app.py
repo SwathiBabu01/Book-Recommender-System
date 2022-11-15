@@ -382,7 +382,7 @@ if option == 'New User':
                 st.markdown(lnk)
                 get_book_info(b, books)
             except IndexError:
-                ind = recBks[recBks == b].index
+                ind = np.where(recBks == b)[0][0]
                 b = users.loc[users['User-ID'] == int(userID),'prevRec'].tolist()[0].split('\t')[ind]
                 st.write(b)
                 bkStr = bkStr +'\t' + b
