@@ -65,14 +65,14 @@ def rat_loc(ratings_pivot):
     return ratings_pivot
 
 #READING DATASETS UNIVERSAL - This is the data reading function that would be run everytime
-def read_new():
+'''def read_new():
     ratings = pd.read_csv('data/Ratings.csv', error_bad_lines = False)
     users = pd.read_csv('data/Users.csv', error_bad_lines = False)
     books = pd.read_csv('data/Books.csv', error_bad_lines = False)
     #ratings_pivot = pd.read_csv('data/Ratings_Pivot.csv', index_col=0, error_bad_lines = False)
     ratings_pivot = rat_pivot(ratings)
     return ratings,users,books,ratings_pivot
-
+'''
 #KNN TO RETURN ITEMS SIMILAR TO THE GIVEN ITEM
 def knn(data, k, query, indices):
     model = NearestNeighbors(metric='cosine', algorithm='brute',n_jobs=-1)
@@ -140,13 +140,10 @@ def new_user():
                 row = [int(userID), int(r), l]
                 index = len(ratings) +1
                 sheet1.insert_row(row,index)
-                #csv_add('Ratings', str(userID)+ ',' + str(r) + ',' + l)
             if bk: #keeping track of prev recommendations (keep track of user activity)
                 users.loc[users['User-ID']==int(userID), 'prevRec'] = bk
-                #usRow = str(userID) + ',' + str(loc) + ',' + str(Age) + ',' +  bk + '\n'
                 #Inserting data to google sheet
                 sheet2.update_cell(users[users['User-ID']==int(userID)].index[0]+2,4, bk)
-                #csv_add('Users', usRow)
                 return userID #returns the new user ID in the end for further process
 
 #INFORMATION ON BOOKS
@@ -203,7 +200,7 @@ def first():
     ratings.to_csv('data/Ratings.csv',index=False)
     ratings_pivot.to_csv('Ratings_Pivot.csv')
 
-#FUNCTION TO ADD ROWS TO THE FILE
+'''#FUNCTION TO ADD ROWS TO THE FILE
 def csv_add(data, myCsvRow):
     lnk = 'data/' + str(data) + '.csv'
     with open(lnk,'a') as fd:
@@ -225,7 +222,7 @@ def edit_csv(recChange, userID):
             writer.writerow(row)
     shutil.move(tempfile.name, filename)
     csvfile.close()
-    tempfile.close()
+    tempfile.close()'''
 
 #FUNCTIONS THAT WERE USED TO TEST THE SYSTEM - Won't be run here
 
@@ -342,9 +339,6 @@ def run_test():
 
 
 #MAIN STRUCTURE
-#New user or Existing user
-option = st.selectbox('Existing User or New User?' , ('Existing User', 'New User'))
-
 #Authorize the API
 scope = [
     'https://www.googleapis.com/auth/drive',
@@ -367,6 +361,9 @@ users = pd.DataFrame(python_sheet2)
 sheet3 = client.open('Books').sheet1
 python_sheet3 = sheet3.get_all_records()
 books = pd.DataFrame(python_sheet3)
+
+#New user or Existing user
+option = st.selectbox('Existing User or New User?' , ('Existing User', 'New User'))
 
 #PROCESS FOR NEW USER
 if option == 'New User':
@@ -398,7 +395,6 @@ if option == 'New User':
         users.loc[users['User-ID']==int(userID),'prevRec'] = bkStr
         ind = users[users['User-ID']==int(userID)].index[0] + 2
         sheet2.update_cell(ind,4, bkStr)
-        #edit_csv(bkStr, int(userID))
 
 #PROCESS FOR EXISTING USER
 if option == 'Existing User':
@@ -427,9 +423,6 @@ if option == 'Existing User':
                         index = len(ratings.index.values) + 1
                         sheet1.insert_row(row,index)
                         ratings_pivot.loc[int(userID),l] = int(rat)
-                        #bkRow = str(userID) + ',' + str(rat) + ',' + str(l) + '\n'
-                        #csv_add('Ratings', bkRow)
-                        #ratings_pivot.to_csv('data/Ratings_Pivot.csv')
             if rec: #they receive new recommendations
                 st.write('YOU MIGHT LIKE:')
                 ratings_pivot = rat_pivot(ratings)
@@ -451,7 +444,6 @@ if option == 'Existing User':
                 users.loc[users['User-ID']==int(userID),'prevRec'] = bkStr
                 #Inserting data
                 sheet2.update_cell(users[users['User-ID']==int(userID)].index[0]+2,4, bkStr)
-                #edit_csv(bkStr, int(userID))
         
         elif userID!= '': #if the userID does not exist
             st.write('Username does not exist. Please try again!')
