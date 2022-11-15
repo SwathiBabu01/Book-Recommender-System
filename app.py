@@ -378,6 +378,7 @@ if option == 'Existing User':
                 st.write('Please rate the chosen books below')
                 m = 0
                 for l in chBooks:
+                    time.sleep(1)
                     st.write(l)
                     m+=1
                     rat = st.text_input('Enter your rating:', key = m)
@@ -412,10 +413,3 @@ if option == 'Existing User':
         
         elif userID!= '': #if the userID does not exist
             st.write('Username does not exist. Please try again!')
-
-
-
-
-
-
-
