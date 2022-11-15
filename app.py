@@ -348,7 +348,7 @@ file_name = 'client_key.json'
 creds = ServiceAccountCredentials.from_json_keyfile_name(file_name,scope)
 client = gspread.authorize(creds)
 
-ratings, users, books, ratings_pivot = read_new()
+#ratings, users, books, ratings_pivot = read_new()
 
 sheet1 = client.open('Ratings').sheet1
 python_sheet1 = sheet1.get_all_records()
