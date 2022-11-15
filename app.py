@@ -1,3 +1,7 @@
+#BOOK RECOMMENDER SYSTEM
+#DSC 478 FINAL PROJECT - WEB APPLICATION
+#SWATHI BABU
+
 #Importing Packages
 import pandas as pd
 import numpy as np
@@ -105,7 +109,6 @@ def new_user():
         for j in (top_books(ratings_pivot)): #printing the book cover page if available
             st.write(j)
             lnk = '!['+ j + ']('+ books.loc[books['Book-Title']== j,'Image-URL-L'].values[0] + ')'
-            #img = Image.open(lnk)
             st.markdown(lnk)
         bks = top_books(ratings_pivot)
         #options to choose the books they like
@@ -160,8 +163,6 @@ def get_book_info(bkName, books): #if available prints basic info about the book
         st.write("\nPage count:", volume_info["volumeInfo"]["pageCount"])
         st.write("\n***")
 
-        #get_isbn = isbn_from_words(isbn)
-        #st.write(registry.bibformatters['labels'](meta(str(get_isbn))))
     except:
         st.write("No info!")
 
@@ -215,9 +216,8 @@ def cross_validate_user(dataMat, user, test_ratio):
     # Compute absolute error for user u over all test items
     for item in withheld_items:
         # Estimate rating on the withheld item
-        ind = knn_test(dataMat.T, 1, data1[:,item].reshape(1, -1))
+        ind = knn_test(dataMat.T, 1, data1[:,item].reshape(1, -1)) #index of the most similar book
         estimatedScore = original_user_profile[ind] #rating for the book
-        #estMethod(dataMat, user, simMeas, item)
         error_u = error_u + abs(estimatedScore - original_user_profile[item])
 
     # Now restore ratings of the withheld items to the user profile
@@ -258,7 +258,6 @@ def cross_validate_user_class(dataMat, user, test_ratio):
         # Estimate rating on the withheld item
         ind = knn_test(dataMat.T, 1, data1[:,item].reshape(1, -1))
         estimatedScore = original_user_profile[ind] #rating for the book
-        #estMethod(dataMat, user, simMeas, item)
         if estimatedScore>5 :
             rat = 'Good'
         else:
@@ -274,8 +273,6 @@ def cross_validate_user_class(dataMat, user, test_ratio):
         for item in withheld_items:
             dataMat[user, item] = original_user_profile[item]
 
-    # Return sum of absolute errors and the count of test cases for this user
-    # Note that these will have to be accumulated for each user to compute MAE
     return crct/count_u
 
 #test function for the classifier
@@ -315,7 +312,6 @@ file_name = 'client_key.json'
 creds = ServiceAccountCredentials.from_json_keyfile_name(file_name,scope)
 client = gspread.authorize(creds)
 
-#ratings, users, books, ratings_pivot = read_new()
 
 sheet1 = client.open('Ratings').sheet1
 python_sheet1 = sheet1.get_all_records()

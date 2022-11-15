@@ -1,6 +1,6 @@
 # Book-Recommender-System
 
-Deploy the app by clicking on the streamlit icon below:
+Open the app by clicking on the streamlit icon below:
 
 =======
 
