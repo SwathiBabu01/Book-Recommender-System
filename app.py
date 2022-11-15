@@ -420,6 +420,7 @@ if option == 'Existing User':
                         #ratings_pivot.to_csv('data/Ratings_Pivot.csv')
             if rec: #they receive new recommendations
                 st.write('YOU MIGHT LIKE:')
+                ratings_pivot = rat_pivot(ratings)
                 recBks = (recommend(ratings_pivot.fillna(0), int(userID), books, users))
                 bkStr = ''
                 for b in recBks:
