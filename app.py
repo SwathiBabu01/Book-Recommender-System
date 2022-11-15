@@ -338,6 +338,9 @@ def run_test():
 
 
 #MAIN STRUCTURE
+#New user or Existing user
+option = st.selectbox('Existing User or New User?' , ('Existing User', 'New User'))
+
 #Authorize the API
 scope = [
     'https://www.googleapis.com/auth/drive',
@@ -361,15 +364,16 @@ sheet3 = client.open('Books').sheet1
 python_sheet3 = sheet3.get_all_records()
 books = pd.DataFrame(python_sheet3)
 
-#New user or Existing user
-option = st.selectbox('Existing User or New User?' , ('Existing User', 'New User'))
-
 #PROCESS FOR NEW USER
 if option == 'New User':
     userID = new_user() 
     if userID: #After receiving the userID of the new user, they are recommended new books and all the informaation is updated in respective dataframes
         ratings = ratings.drop_duplicates(['User-ID', 'Book-Title'])
         ratings_pivot = rat_pivot(ratings)
+        try:
+            ratings_pivot.drop([8.4, 253, 1984, 2001, np.inf],axis=1,inplace=True) #some cleaning
+        except:
+            ratings_pivot = ratings_pivot
         st.write('You might like: ')
         recBks = recommend(ratings_pivot.fillna(0), int(userID), books, users)
         bkStr = ''
@@ -426,6 +430,10 @@ if option == 'Existing User':
             if rec: #they receive new recommendations
                 st.write('YOU MIGHT LIKE:')
                 ratings_pivot = rat_pivot(ratings)
+                try:
+                    ratings_pivot.drop([8.4, 253, 1984, 2001, np.inf],axis=1,inplace=True) 
+                except:
+                    ratings_pivot = ratings_pivot
                 recBks = (recommend(ratings_pivot.fillna(0), int(userID), books, users))
                 bkStr = ''
                 for b in recBks:
